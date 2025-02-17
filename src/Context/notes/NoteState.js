@@ -20,7 +20,6 @@ const NoteState = (props) => {
         },
       });
   
-      // Check if the response is successful
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -64,9 +63,9 @@ const addNote = async (title, description, tag) => {
 
     try {
         const response = await fetch(`${host}/notes/deletenote/${id}`, {
-            method: 'DELETE', // Correct HTTP method for deleting
+            method: 'DELETE', 
             headers: {
-                'Content-Type': 'application/json', // Ensure the server expects JSON
+                'Content-Type': 'application/json', 
                 'auth-token': localStorage.getItem('token'),
             },
         });
